@@ -1,0 +1,117 @@
+body {
+    background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQUaGGTu7uqKDLKMmgmETPJrDgydCzlsWCZGxjp2A4-MzNh9gKo");
+    font-family: sans-serif;
+    background-color: black;
+    
+
+}
+body::-webkit-scrollbar {
+    width: 12px;
+}
+body::-webkit-scrollbar-track{
+    background-color: #000000;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #a7a7a7;
+    border-radius: 20px;
+    border: 3px solid rgb(0, 0, 0);
+}
+.boton {
+    background-color: #0088cc;
+    color: #fff;
+    
+    border: 1px solid #0088cc;
+    border-radius: 4px;
+    transition: all .2s  ease;
+}
+.boton:hover {
+    background-color: #fff;
+    color: #0088cc;
+}
+.buta {
+    background-color: #fff;
+    color: black;
+    
+    border-radius: 4px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+h1, p {
+    color: white;
+}
+h1, input, .PE {
+    text-align: center;
+}
+.tudo {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1300px;
+    background-color: black;
+    border-radius: 20px;
+    height: 100%;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    white-space: nowrap;
+}
+
+h4, h5 {
+    color: white;
+}
+.di p{
+    display: inline-block;
+    
+
+}
+.p {
+    text-align: left;
+    width: 75%;
+    
+}
+.re {
+    text-align: right;
+    width: 25%;
+    
+}
+hr {
+    height: 2px;
+    background-color: #fff;
+    color: white;
+}
+legend {
+    font-size: small;
+    color: white;
+}
+a {
+    color: grey;
+}
+a:visited {
+    color: grey;
+}
+a:hover {
+    color:#b669ff
+}
+a:active {
+    color: #b669ff
+}
+.tabela {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1300px;
+    background-color: black;
+    border-radius: 20px;
+    height: 100%;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    white-space: nowrap;
+    padding-left: 10px;
+   
+  
+}
+h2 {
+    color: white;
+}
+.aga1 {
+    font-size: 40px;
+}
