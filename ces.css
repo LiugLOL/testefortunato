@@ -1,6 +1,6 @@
 body {
     background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQUaGGTu7uqKDLKMmgmETPJrDgydCzlsWCZGxjp2A4-MzNh9gKo");
-    font-family: sans-serif;
+    font-family: "Kamit", sans-serif;
     background-color: black;
     
 
@@ -43,6 +43,7 @@ h1, input, .PE {
     text-align: center;
 }
 .tudo {
+    font-family: "Kanit", sans-serif;
     width: 95%;
     margin-left: auto;
     margin-right: auto;
@@ -79,6 +80,7 @@ hr {
     color: white;
 }
 legend {
+    font-family: "Kamit", sans-serif;
     font-size: small;
     color: white;
 }
@@ -95,6 +97,7 @@ a:active {
     color: #b669ff
 }
 .tabela {
+    font-family: "Kanit", sans-serif;
     width: 95%;
     margin-left: auto;
     margin-right: auto;
@@ -110,8 +113,10 @@ a:active {
   
 }
 h2 {
+    font-family: "Kanit",sans-serif;
     color: white;
 }
 .aga1 {
+    font-family: "Kanit", sans-serif;
     font-size: 40px;
 }
