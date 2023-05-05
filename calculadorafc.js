@@ -4,7 +4,7 @@ function Calcular() {
     var s1 = parseFloat(document.getElementById("s1").value); 
     var s2 = parseFloat(document.getElementById("s2").value);
     var s3 = parseFloat(document.getElementById("s3").value);
-    var s4 = parseFloat(document.getElementById("s4").value);
+    var s4 = parseFloat(document.getElementById("dep").value);
     
 
     if (isNaN(s1) || isNaN(s2) || isNaN(s3) || isNaN(s4)) { 
@@ -195,14 +195,14 @@ var rr =  parseFloat(R.toFixed(4));
     }
     else if (gplus <= 2427.35, gplus >=1212) {
     
-        var part12 = gplus -1212;
-        var part22 = part1*0.09;
-        var hplus = part2+109.38;
+        var part12 =gplus - 1212;
+        var part22 = part12*0.09;
+        var hplus = part22+109.38;
     }
     else if (gplus <= 3641.03, gplus>=2427.35) {
         var part12 = gplus-2427.35;
-        var part22 = part1*0.12;
-        var hplus = part2+145.64;
+        var part22 = part12*0.12;
+        var hplus = part22+145.64;
     }
     else if (gplus <= 7087.22, gplus>=3641.03) {
         var part12 = gplus -3641.03;
@@ -230,19 +230,19 @@ var rr =  parseFloat(R.toFixed(4));
     }
     else if (iplus <= 3751.05) {
         var partt12 = iplus*0.15;
-        var jplus = part12-354.80;
+        var jplus = part1t2-354.80;
         
         
 
     }
     else if (iplus <= 4664.68) {
-        var partt1 = iplus*0.225;
-        var jplus = partt1-646.13;
+        var partt12 = iplus*0.225;
+        var jplus = partt12-646.13;
         
     }
     else if (iplus >= 4664.48) {
-        var partt1 = iplus*0.2750;
-        var jplus = partt1-869.36;
+        var partt12 = iplus*0.2750;
+        var jplus = partt12-869.36;
 
     
     }
@@ -287,8 +287,8 @@ var kkplus =  parseFloat(kplus.toFixed(4));
         var hplus = part22fer+145.64;
     }
     else if (gplus <= 7087.22, gplus>=3641.03) {
-        var part12 = gplus -3641.03;
-        var part22 = part12fer*0.14;
+        var part12fer = gplus -3641.03;
+        var part22fer = part12fer*0.14;
         var hplus = part22fer+482.47;
         
         
@@ -299,7 +299,7 @@ var kkplus =  parseFloat(kplus.toFixed(4));
         var hfer = 828.39;
     }
     var depfer = s4*189.59 //USE VALORES INTEIRROS
-    var ifer = gplus-H-s4//base pro imposto de renda
+    var ifer = gfer-H-s4//base pro imposto de renda
     var jfer = 0 //imposto de renda
     if (ifer <= 1903.98) {
         var jfer = 0
@@ -342,44 +342,44 @@ var iifer =  parseFloat(ifer.toFixed(4));
 var jjfer =  parseFloat(jfer.toFixed(4));
 var kkfer =  parseFloat(kfer.toFixed(4));
 
-document.getElementById("saidaa").innerHTML = aa;
-document.getElementById('saidab').innerHTML = bb
-document.getElementById("saidac").innerHTML = cc;
-document.getElementById("saidad").innerHTML = dd;
-document.getElementById("saidae").innerHTML = ee;
-document.getElementById("saidaf").innerHTML = ff;
-document.getElementById("saidag").innerHTML = gg;
-document.getElementById("saidah").innerHTML = hh;
-document.getElementById("saidadep").innerHTML = iii;
-document.getElementById("saidai").innerHTML = ii;
-document.getElementById("saidaj").innerHTML = jj
-document.getElementById("saidak").innerHTML = kk;
+document.getElementById("ano").innerHTML = aa;
+document.getElementById('bno').innerHTML = bb
+document.getElementById("cno").innerHTML = cc;
+document.getElementById("dno").innerHTML = dd;
+document.getElementById("eno").innerHTML = ee;
+document.getElementById("fno").innerHTML = ff;
+document.getElementById("gno").innerHTML = gg;
+document.getElementById("hno").innerHTML = hh;
+document.getElementById("depno").innerHTML = iii;
+document.getElementById("ino").innerHTML = ii;
+document.getElementById("jno").innerHTML = jj
+document.getElementById("kno").innerHTML = kk;
 //aumento
-document.getElementById("saidaaplus").innerHTML = aaplus;
-document.getElementById('saidabplus').innerHTML = bbplus;
-document.getElementById("saidacplus").innerHTML = ccplus;
-document.getElementById("saidadplus").innerHTML = ddplus;
-document.getElementById("saidaeplus").innerHTML = eeplus;
-document.getElementById("saidafplus").innerHTML = ffplus;
-document.getElementById("saidagplus").innerHTML = ggplus;
-document.getElementById("saidahplus").innerHTML = hhplus;
-document.getElementById("saidadepplus").innerHTML = depplus;
-document.getElementById("saidaiplus").innerHTML = iiplus;
-document.getElementById("saidajplus").innerHTML = jjplus;
-document.getElementById("saidakplus").innerHTML = kkplus;
+document.getElementById("saplus").innerHTML = aaplus;
+document.getElementById('sbplus').innerHTML = bbplus;
+document.getElementById("scplus").innerHTML = ccplus;
+document.getElementById("sdplus").innerHTML = ddplus;
+document.getElementById("seplus").innerHTML = eeplus;
+document.getElementById("sfplus").innerHTML = ffplus;
+document.getElementById("sgplus").innerHTML = ggplus;
+document.getElementById("shplus").innerHTML = hhplus;
+document.getElementById("sdepplus").innerHTML = depplus;
+document.getElementById("siplus").innerHTML = iiplus;
+document.getElementById("sjplus").innerHTML = jjplus;
+document.getElementById("skplus").innerHTML = kkplus;
 //ferias
-document.getElementById("saidaafer").innerHTML = aafer;
-document.getElementById('saidabfer').innerHTML = bbfer;
-document.getElementById("saidacfer").innerHTML = ccfer;
-document.getElementById("saidadfer").innerHTML = ddfer;
-document.getElementById("saidaefer").innerHTML = eefer;
-document.getElementById("saidaffer").innerHTML = fffer;
-document.getElementById("saidagfer").innerHTML = ggfer;
-document.getElementById("saidahfer").innerHTML = hhfer;
-document.getElementById("saidadepfer").innerHTML = depfer;
-document.getElementById("saidaifer").innerHTML = iifer;
-document.getElementById("saidajfer").innerHTML = jjfer
-document.getElementById("saidakfer").innerHTML = kkfer;
+document.getElementById("safer").innerHTML = aafer;
+document.getElementById('sbfer').innerHTML = bbfer;
+document.getElementById("scfer").innerHTML = ccfer;
+document.getElementById("sdfer").innerHTML = ddfer;
+document.getElementById("sefer").innerHTML = eefer;
+document.getElementById("sfferr").innerHTML = fffer;
+document.getElementById("sgfer").innerHTML = ggfer;
+document.getElementById("shfer").innerHTML = hhfer;
+document.getElementById("sdepfer").innerHTML = depfer;
+document.getElementById("sifer").innerHTML = iifer;
+document.getElementById("sjfer").innerHTML = jjfer
+document.getElementById("skfer").innerHTML = kkfer;
 
       
       
