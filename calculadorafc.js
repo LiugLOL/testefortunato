@@ -1,85 +1,54 @@
 
 
 function Calcular() {
-    var s1 = parseFloat(document.getElementById("s1").value); 
-    var s2 = parseFloat(document.getElementById("s2").value);
-    var s3 = parseFloat(document.getElementById("s3").value);
-    var s4 = parseFloat(document.getElementById("dep").value);
+    var salario = parseFloat(document.getElementById("v1").value); 
+    var numero = parseFloat(document.getElementById("v2").value);
+    var horaExtra = parseFloat(document.getElementById("v3").value);
+    var dependentes = parseFloat(document.getElementById("v4").value);
     
 
-    if (isNaN(s1) || isNaN(s2) || isNaN(s3) || isNaN(s4)) { 
+    if (isNaN(salario) || isNaN(numero) || isNaN(horaExtra) || isNaN(dependentes)) { 
         alert("Preencha os campos corretamente!");
         return;
     }
      
-    var A = s1 + s2;//Salário  A
-    var B = A/220;//Hora normal  B
-    var C = B/2;//Adicional de 50%  C
-    var D = B+C//hora extra+hora  D
-    var E = s3+s2   
-    var F = D*E;//Horas extras por mês
-    var G = A + F;//Salário+Hora extra
-    var H = 0; //inss
-    if (G <= 1212) {
-        var part1 = G*0.075;
-        var H = part1+90.90;
+    var salarioNormal = salario + numero;//Salário  A
+    var horaExtra = salarioNormal/220;//Hora normal  B
+    var adicionalHoraExtra = horaExtra/2;//Adicional de 50%  C
+    var horaExtraSomada = horaExtra+adicionalHoraExtra//hora extra+hora  D
+    var quantidadeHoraExtra = horaExtra+numero   
+    var horaExtraMes = horaExtraSomada*quantidadeHoraExtra;//Horas extras por mês
+    var salarioBruto = salarioNormal + horaExtraMes;//Salário+Hora extra
+    var inssconta = calculoINSS(ieniss, salarioBruto); //inss
+    var baseIRRF = inssconta-salario-dependentes//base pro imposto de renda
+    var irrf = 0 //imposto de renda
+    if (baseIRRF <= 1903.98) {
+        var irrf = 0
+    }
+    else if (baseIRRF <= 2826.65, baseIRRF>=1903.98) {
+        var part1 = baseIRRF*0.075;
+        var irrf = part1-142.80;
+        
 
+    }
+    else if (baseIRRF <= 3751.05) {
+        var part1 = baseIRRF*0.15;
+        var irrf = part1-354.80;
+        
+        
+
+    }
+    else if (baseIRRF <= 4664.68) {
+        var part1 = baseIRRF*0.225;
+        var irrf = part1-646.13;
+        
+    }
+    else if (baseIRRF >= 4664.48) {
+        var part1 = baseIRRF*0.2750;
+        var irrf = part1-869.36;
     
-    }
-    else if (G <= 2427.35, G >=1212) {
     
-        var part1 = G -1212;
-        var part2 = part1*0.09;
-        var H = part2+109.38;
-    }
-    else if (G <= 3641.03, G>=2427.35) {
-        var part1 = G-2427.35;
-        var part2 = part1*0.12;
-        var H = part2+145.64;
-    }
-    else if (G <= 7087.22, G>=3641.03) {
-        var part1 = G -3641.03;
-        var part2 = part1*0.14;
-        var H = part2+482.47;
-        
-        
-    }
-    else if (G  >= 7087.22) {
- 
-        
-        var H = 828.39;
-    }
-    var iii = s4*189.59 //USE VALORES INTEIRROS
-    var I = G-H-s4//base pro imposto de renda
-    var J = 0 //imposto de renda
-    if (I <= 1903.98) {
-        var J = 0
-    }
-    else if (I <= 2826.65, I>=1903.98) {
-        var part1 = I*0.075;
-        var J = part1-142.80;
-        
-
-    }
-    else if (I <= 3751.05) {
-        var part1 = I*0.15;
-        var J = part1-354.80;
-        
-        
-
-    }
-    else if (I <= 4664.68) {
-        var part1 = I*0.225;
-        var J = part1-646.13;
-        
-    }
-    else if (I >= 4664.48) {
-        var part1 = I*0.2750;
-        var J = part1-869.36;
-
-    }
-    
-    var K = I - J; //salário líquido
+    /*var K = I - J; //salário líquido
     
     var L =  I*12.33;
     var M = H*12.33
@@ -119,26 +88,20 @@ function Calcular() {
        var P = O - 10432.32
     }
     var Q = J*12.33
-    var R = Q - P;
+    var R = Q - P;*/
    
-var aa =  parseFloat(A.toFixed(4));
-var bb =  parseFloat(B.toFixed(4));
-var cc =  parseFloat(C.toFixed(4));
-var dd =  parseFloat(D.toFixed(4));
-var ee =  parseFloat(E.toFixed(4));
-var ff =  parseFloat(F.toFixed(4));
-var gg =  parseFloat(G.toFixed(4));
-var hh =  parseFloat(H.toFixed(4));
-var ii =  parseFloat(I.toFixed(4));
-var jj =  parseFloat(J.toFixed(4));
-var kk =  parseFloat(K.toFixed(4));
-var ll =  parseFloat(L.toFixed(4));
-var mm =  parseFloat(M.toFixed(4));
-var nn =  parseFloat(N.toFixed(4));
-var oo =  parseFloat(O.toFixed(4));
-var pp =  parseFloat(P.toFixed(4));
-var qq =  parseFloat(Q.toFixed(4));
-var rr =  parseFloat(R.toFixed(4));
+var salarioNormalFormatado =  parseFloat(salarioNormal.toFixed(4));
+var horaExtraFormatado =  parseFloat(horaExtra.toFixed(4));
+var adicionalHoraExtraFormatado =  parseFloat(adicionalHoraExtra.toFixed(4));
+var horaExtraSomadaFormatado =  parseFloat(horaExtraSomada.toFixed(4));
+var quantidadeHoraExtraFormatado =  parseFloat(quantidadeHoraExtra.toFixed(4));
+var horaExtraMesFormatado =  parseFloat(horaExtraMes.toFixed(4));
+var salarioBrutoFormatado =  parseFloat(salarioBruto.toFixed(4));
+var inssFormatado =  parseFloat(inssconta.toFixed(4));
+var ii =  parseFloat(baseIRRF.toFixed(4));
+var jj =  parseFloat(irrf.toFixed(4));
+
+
 
 
 
@@ -179,11 +142,11 @@ var rr =  parseFloat(R.toFixed(4));
       //irrf
       /*acabo*/
       /*agr é de maio, pula julho, e o resto do ano */
-      var aplus= A*0.05
+      var aplus= salarioNormal*0.05
       var bplus=aplus/220
       var cplus=bplus/2
       var dplus=bplus+cplus
-      var eplus=E
+      var eplus=quantidadeHoraExtra
       var fplus= dplus*eplus
       var gplus=aplus+fplus
       var hplus=0
@@ -216,8 +179,8 @@ var rr =  parseFloat(R.toFixed(4));
         
         var hplus = 828.39;
     }
-    var depplus = s4*189.59 //USE VALORES INTEIRROS
-    var iplus = gplus-H-s4//base pro imposto de renda
+    var depplus = dependentes*189.59 //USE VALORES INTEIRROS
+    var iplus = gplus-inssconta-dependentes//base pro imposto de renda
     var jplus = 0 //imposto de renda
     if (iplus <= 1903.98) {
         var jplus = 0
@@ -246,7 +209,7 @@ var rr =  parseFloat(R.toFixed(4));
 
     
     }
-    var kplus=iplus-jplus
+   
 
 var aaplus =  parseFloat(aplus.toFixed(4));
 var bbplus =  parseFloat(bplus.toFixed(4));
@@ -258,14 +221,14 @@ var ggplus =  parseFloat(gplus.toFixed(4));
 var hhplus =  parseFloat(hplus.toFixed(4));
 var iiplus =  parseFloat(iplus.toFixed(4));
 var jjplus =  parseFloat(jplus.toFixed(4));
-var kkplus =  parseFloat(kplus.toFixed(4));
+
 
       /*ferias */
-      var afer= A*0.05
+      var afer= salarioNormal*0.05
       var bfer=afer/220
       var cfer=bfer/2
       var dfer=bfer+cfer
-      var efer=E
+      var efer=0
       var ffer= dfer*efer
       var gfer=afer+ffer
       var hfer=0
@@ -298,8 +261,8 @@ var kkplus =  parseFloat(kplus.toFixed(4));
         
         var hfer = 828.39;
     }
-    var depfer = s4*189.59 //USE VALORES INTEIRROS
-    var ifer = gfer-H-s4//base pro imposto de renda
+    var depfer = dependentes*189.59 //USE VALORES INTEIRROS
+    var ifer = gfer-inssconta-dependentes//base pro imposto de renda
     var jfer = 0 //imposto de renda
     if (ifer <= 1903.98) {
         var jfer = 0
@@ -340,20 +303,20 @@ var ggfer =  parseFloat(gfer.toFixed(4));
 var hhfer =  parseFloat(hfer.toFixed(4));
 var iifer =  parseFloat(ifer.toFixed(4));
 var jjfer =  parseFloat(jfer.toFixed(4));
-var kkfer =  parseFloat(kfer.toFixed(4));
 
-document.getElementById("ano").innerHTML = aa;
-document.getElementById('bno').innerHTML = bb
-document.getElementById("cno").innerHTML = cc;
-document.getElementById("dno").innerHTML = dd;
-document.getElementById("eno").innerHTML = ee;
-document.getElementById("fno").innerHTML = ff;
-document.getElementById("gno").innerHTML = gg;
-document.getElementById("hno").innerHTML = hh;
+
+document.getElementById("ano").innerHTML = salarioNormalFormatado;
+document.getElementById('bno').innerHTML = horaExtraFormatado
+document.getElementById("cno").innerHTML = adicionalHoraExtraFormatado;
+document.getElementById("dno").innerHTML = horaExtraSomadaFormatado;
+document.getElementById("eno").innerHTML = quantidadeHoraExtraFormatado;
+document.getElementById("fno").innerHTML = horaExtraMesFormatado;
+document.getElementById("gno").innerHTML = salarioBrutoFormatado;
+document.getElementById("hno").innerHTML = inssFormatado;
 document.getElementById("depno").innerHTML = iii;
 document.getElementById("ino").innerHTML = ii;
 document.getElementById("jno").innerHTML = jj
-document.getElementById("kno").innerHTML = kk;
+
 //aumento
 document.getElementById("saplus").innerHTML = aaplus;
 document.getElementById('sbplus').innerHTML = bbplus;
@@ -366,32 +329,80 @@ document.getElementById("shplus").innerHTML = hhplus;
 document.getElementById("sdepplus").innerHTML = depplus;
 document.getElementById("siplus").innerHTML = iiplus;
 document.getElementById("sjplus").innerHTML = jjplus;
-document.getElementById("skplus").innerHTML = kkplus;
+
 //ferias
 document.getElementById("safer").innerHTML = aafer;
 document.getElementById('sbfer').innerHTML = bbfer;
 document.getElementById("scfer").innerHTML = ccfer;
 document.getElementById("sdfer").innerHTML = ddfer;
-document.getElementById("sefer").innerHTML = eefer;
-document.getElementById("sfferr").innerHTML = fffer;
+document.getElementById("sefer").innerHTML = quantidadeHoraExtra;
+document.getElementById("sffer").innerHTML = ffer;
 document.getElementById("sgfer").innerHTML = ggfer;
 document.getElementById("shfer").innerHTML = hhfer;
 document.getElementById("sdepfer").innerHTML = depfer;
 document.getElementById("sifer").innerHTML = iifer;
 document.getElementById("sjfer").innerHTML = jjfer
-document.getElementById("skfer").innerHTML = kkfer;
+//O K
+var kfer=ifer-jfer
+var K = baseIRRF - irrf; //salário líquido
+var kplus= iplus-jplus
 
+
+//rend trib ano
+var rta=K*4+6*kplus+2*kfer
+
+//13 salario
+var dt=rta/12
+
+document.getElementById('srta').innerHTML= rta;
+document.getElementById('sdt').innerHTML= dt;
       
       
   }
       
     
     
-    function Limpar(s1){
-		document.getElementById(s1).value = "";
+    function Limpar(v1){
+		document.getElementById(v1).value = "";
 		
     }
   
   function fechar(){
         window.close();
     }
+
+}
+
+function calculoINSS(ieniss, salarioBruto) {
+    if (salarioBruto <= 1212) {
+        
+        var ieniss = (salarioBruto*0.075)+90.90
+        return ieniss;
+
+    
+    }
+    else if (salarioBruto < 2427.35 && salarioBruto >1212) {
+
+        var ieniss = (salarioBruto-1212)*0.09+109.38
+        return ieniss;
+    }
+    else if (salarioBruto < 3641.03 && salarioBruto>2427.35) {
+
+        var ieniss = (salarioBruto-2427.35)*0.12+145.64;
+        return ieniss;
+    }
+    else if (salarioBruto < 7087.22 && salarioBruto>3641.03) {
+
+        var ieniss = (salarioBruto-3641.03)*0.14+482.47;
+        return ieniss;
+        
+        
+    }
+    else if (salarioBruto  > 7087.22) {
+
+        var ieniss = 828.39;
+        return ieniss;
+    }
+}
+
+document.getElementById("testando").innerHTML ="teste:", calculoINSS;
