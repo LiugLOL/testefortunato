@@ -405,4 +405,4 @@ function calculoINSS(ieniss, salarioBruto) {
     }
 }
 
-document.getElementById("testando").innerHTML ="teste:", calculoINSS;
+document.getElementById("testando").innerHTML ="valor teste:", calculoINSS;
