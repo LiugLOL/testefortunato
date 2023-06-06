@@ -1,7 +1,7 @@
 function salarioAnoWow(salario, salarioAumento, salarioFerias) {
     var selectElement = document.getElementById("opcoes");
       
-    selectElement.addEventListener("change", function() {
+    selectElement.addEventListener("change"), function() {
       var opcaoSelecionada = selectElement.value;
   
       if (opcaoSelecionada === "maio") {
@@ -321,14 +321,16 @@ document.getElementById('sdt').innerHTML= decimoTerceiro;
 //declaração simpl
 
 
-var rendaAno = salarioL*
-var descSim = salarioAnoWow
+var rendaAno = salarioL*aumento+salarioLiquidoAumento*aumentoNum+salarioLiquidoFerias
+var contraPrevINSS = inss*aumento+inssAumento*aumentoNum+inssFerias
+    var descSim = contraPrevINSS*0.2
+    if(descSim>16754.34) {
+        var descSim = 16 754.34
+        return descSim
+    }
+    var baseCalculo = rendaAno-descSim
+    
 
-if (>=16754.34) {
-    N = 16754.34
-}
-
-var O = L-N;//BASEIRA
 var P =  0;//IMPDEV
 
 
