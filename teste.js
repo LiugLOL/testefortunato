@@ -1,24 +1,5 @@
-function salarioAnoWow(salario, salarioAumento, salarioFerias) {
-    var selectElement = document.getElementById("opcoes");
-      
-    selectElement.addEventListener("change"), function() {
-      var opcaoSelecionada = selectElement.value;
-  
-      if (opcaoSelecionada === "maio") {
-        var aumento = 4;
-        var aumentoNum = 7
-        return salario*aumento+salarioAumento*aumentoNum+salarioFerias;
-     
-     
-  
-      } else if (opcaoSelecionada === "junho") {
-        var aumento = 5
-        var aumentoNum = 6
-        return salario*aumento+salarioAumento*aumentoNum+salarioFerias;
-           
-      }
-    }}
-function mesAumento(inss, inssAumento, inssFerias) {
+
+function calculoAno(a, aAumento, aFerias) {
     var selectElement = document.getElementById("opcoes");
       
     selectElement.addEventListener("change", function() {
@@ -27,40 +8,52 @@ function mesAumento(inss, inssAumento, inssFerias) {
       if (opcaoSelecionada === "maio") {
         var aumento = 4;
         var aumentoNum = 7
-        return salario*aumento+salarioAumento*aumentoNum+salarioFerias;
+        return a*aumento+aAumento*aumentoNum+aFerias;
      
      
   
       } else if (opcaoSelecionada === "junho") {
         var aumento = 5
         var aumentoNum = 6
-        return inss*aumento+inssAumento*aumentoNum+inssFerias;
+        return a*aumento+aAumento*aumentoNum+aFerias;
            
       }
 
 })
 
-}
-var selectElement = document.getElementById("opcoes");   
-    selectElement.addEventListener("change", function() {
-      var opcaoSelecionada = selectElement.value;
-  
-      if (opcaoSelecionada === "maio") {
-        var aumento = 5;
-        var aumentoNum = 6
-        return aumento, aumentoNum;
-       
-     
-     
-  
-      } else if (opcaoSelecionada === "junho") {
-        var aumento = 6
-        var aumentoNum = 5
-        return aumento, aumentoNum;
+function IrrfAno(descSim, baseCalculo){
+        
+    if (baseCalculo<=22847.76) {
+       var descSim = 0
+       return descSim
            
-      }
+    }
+    else if (baseCalculo<=33191.80) {
+
+        var descSim = baseCalculo*0.075-1716;
+        return descSim
+    
+    
+    }
+    else if (baseCalculo<=45012.60) {
+       var descSim = baseCalculo*0.15 -4257.57
+       return descSim
+    }
+    else if (baseCalculo<=55976.16) {
    
-})
+        var descSim = baseCalculo*0.225-7633.51
+        return descSim
+    }
+    else if (baseCalculo>55976.16) {
+   
+       var descSim = baseCalculo*0.275- 10432.32
+       return descSim
+    }
+
+         
+   }
+
+
 
 function calculoIRRF(irrfValor) {
     if (irrfValor <= 1903.98) {
@@ -90,12 +83,12 @@ function calculoIRRF(irrfValor) {
     }
     
 }
-function Calcular() {
-    var s1 = parseFloat(document.getElementById("s1").value); 
-    var s2 = parseFloat(document.getElementById("s2").value);
-    var s3 = parseFloat(document.getElementById("s3").value);
-    var s4 = parseFloat(document.getElementById("dep").value);
-    var s5 = parseFloat(document.getElementById("s5").value);
+var s1 = parseFloat(document.getElementById("s1").value); 
+var s2 = parseFloat(document.getElementById("s2").value);
+var s3 = parseFloat(document.getElementById("s3").value);
+var s4 = parseFloat(document.getElementById("dep").value);
+var s5 = parseFloat(document.getElementById("s5").value);
+function Calculos(s1, s2, s3, s4, s5) {
     var aumento = s5/100;
 
     
@@ -118,50 +111,9 @@ function Calcular() {
     var baseIrrf = salarioBruto-inss-s4//base pro imposto de renda
     var irrf = calculoIRRF(baseIrrf) //imposto de renda
     var salarioL = salarioBruto-irrf
-    var salario
+
   
-    /*var K = I - J; //salário líquido
     
-    var L =  I*12.33;
-    var M = H*12.33
-    var N = M*0.2;
-    if (N>=16754.34) {
-        N = 16754.34
-    }
-   
-    var O = L-N;//BASEIRA
-    var P =  0;//IMPDEV
-    
-
-         if (O<=22847.76) {
-       var P = 0
-           
-    }
-    else if (O<=33191.80) {
-        var parte1 = O*0.075;
-        var P = parte1-1716;
-        
-
-
-    }
-    else if (O<=45012.60) {
-        var parte1 = O*0.15;
-        var P = parte1-4257;
-
-       var P = O*0.15 -4257.57
-    }
-    else if (O<=55976.16) {
-        var parte1 = O*0.225
-        var P = parte1-7633.51
-       
-    }
-    else if (O>55976.16) {
-        var parte1= O*0.275
-       var P = O - 10432.32
-    }
-    var Q = J*12.33
-    var R = Q - P;*/
-   
 var salarioFix =  parseFloat(salario.toFixed(4));
 var horaNormalFix =  parseFloat(horaNormal.toFixed(4));
 var adicionalHoraExtraFix =  parseFloat(adicionalHExtra.toFixed(4));
@@ -193,7 +145,6 @@ var irrfFix =  parseFloat(irrf.toFixed(4));
       A
       
       1
-
       B
       I
       M
@@ -223,7 +174,7 @@ var irrfFix =  parseFloat(irrf.toFixed(4));
       var horaExtraMesAumento= horaExtraAumento*numeroExtrasAumento
       var salarioBrutoAumento=salarioAumento+horaExtraMesAumento
       var inssAumento=calculoINSS(salarioBrutoAumento)
-      var dependentesAumento = s4*189.59 //USE VALORES INTEIRROS
+      var dependentesAumento = s4 //USE VALORES INTEIRROS
       var baseIrrfAumento = salarioBrutoAumento-inss-s4//base pro imposto de renda
       var IrrfAumento = calculoIRRF(baseIrrfAumento);
 
@@ -250,7 +201,7 @@ var IrrfAumentoFix =  parseFloat(IrrfAumento.toFixed(4));
       var horaExtraMesFerias= HoraExtraFerias*numeroExtraMesFerias
       var salarioBrutoFerias=salarioFerias+horaExtraMesFerias
       var inssFerias= calculoINSS(salarioBrutoFerias)
-      var dependentesFerias = s4*189.59 //USE VALORES INTEIRROS
+      var dependentesFerias = s4 //USE VALORES INTEIRROS
       var baseIrrfFerias = salarioBrutoFerias-inss-s4//base pro imposto de renda
       var irrfFerias = calculoIRRF(baseIrrfFerias)
       var salarioLiquidoFerias=baseIrrfFerias-irrfFerias
@@ -259,8 +210,7 @@ var aafer =  parseFloat(salarioFerias.toFixed(4));
 var bbfer =  parseFloat(horaNormalFerias.toFixed(4));
 var ccfer =  parseFloat(adicionalHextraFerias.toFixed(4));
 var ddfer =  parseFloat(HoraExtraFerias.toFixed(4));
-var eefer =  parseFloat(numeroExtraMesFerias.toFixed(4));
-var fffer =  parseFloat(horaExtraMesFerias.toFixed(4));
+
 var ggfer =  parseFloat(salarioBrutoFerias.toFixed(4));
 var hhfer =  parseFloat(inssFerias.toFixed(4));
 var iifer =  parseFloat(baseIrrfFerias.toFixed(4));
@@ -321,55 +271,37 @@ document.getElementById('sdt').innerHTML= decimoTerceiro;
 //declaração simpl
 
 
-var rendaAno = salarioL*aumento+salarioLiquidoAumento*aumentoNum+salarioLiquidoFerias
-var contraPrevINSS = inss*aumento+inssAumento*aumentoNum+inssFerias
+
+var rendaAno = calculoAno(salario, salarioAumento, salarioFerias);
+var contraPrevINSS = calculoAno(inss, inssAumento, inssFerias)
     var descSim = contraPrevINSS*0.2
     if(descSim>16754.34) {
-        var descSim = 16 754.34
+        var descSim = 16754.34
         return descSim
     }
     var baseCalculo = rendaAno-descSim
     
 
-var P =  0;//IMPDEV
+var ImpDev =  baseCalculo-IrrfAno(descSim,baseCalculo);//IMPDEV
+
+var irrfAnual = calculoAno(irrf, IrrfAumento, irrfFerias);
+var IrRestante = ImpDev - baseCalculo;
 
 
-     if (O<=22847.76) {
-   var P = 0
-       
-}
-else if (O<=33191.80) {
-    var parte1 = O*0.075;
-    var P = parte1-1716;
-    
-
-
-}
-else if (O<=45012.60) {
-    var parte1 = O*0.15;
-    var P = parte1-4257;
-
-   var P = O*0.15 -4257.57
-}
-else if (O<=55976.16) {
-    var parte1 = O*0.225
-    var P = parte1-7633.51
-   
-}
-else if (O>55976.16) {
-    var parte1= O*0.275
-   var P = O - 10432.32
-}
-var Q = J*12.33
-var R = Q - P;*/
-      
+document.getElementById("rendaAno").innerHTML = rendaAno;
+document.getElementById("contraPrevINSS").innerHTML =contraPrevINSS ;
+document.getElementById("descSim").innerHTML = descSim;
+document.getElementById("baseCalculo").innerHTML = baseCalculo;
+document.getElementById("impDev").innerHTML = ImpDev;
+document.getElementById("irrfAnual").innerHTML = irrfAnual;
+document.getElementById("irRestante").innerHTML = IrRestante;
   }
       
     
     
     function Limpar(s1){
-		document.getElementById(s1).value = "";
-		
+        document.getElementById(s1).value = "";
+        
     }
   
   function fechar(){
@@ -419,8 +351,44 @@ function login() {
         window.close()
     }
 
+}
+    function IrrfAno(descSim, baseCalculo){
+        
+     if (baseCalculo<=22847.76) {
+        var P = 0
+        return P
+            
+     }
+     else if (O<=33191.80) {
 
+         var P = O*0.075-1716;
+         return P
+     
+     
+     }
+     else if (O<=45012.60) {
+        var P = O*0.15 -4257.57
+        return P
+     }
+     else if (O<=55976.16) {
     
+         var P = O*0.225-7633.51
+         return P
+     }
+     else if (O>55976.16) {
+    
+        var P = O*0.275- 10432.32
+        return P
+     }
+
+          
+    }}
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -435,7 +403,7 @@ function login() {
 
 <h1 class="aga1"><a  class="lin" href="https://www.fortunatocontas.com.br">FortunatoContas.com.br</a></h1>
 <p class="PE">Coloque o salário, seu número da chamada e número de horas extras para obter as respostas!</p>
-<p class="PE"><legend>Esta é a <strong>primeira</strong> folha do 2° bimestre</legend></p>
+<p class="PE"><legend>Esta é a <strong>quinta</strong> folha do 2° bimestre</legend></p>
 <p class="PE"><legend>Por favor, <strong>some</strong> todas as despesas e coloque no campo de depesas.</legend></p>
 
 
@@ -455,7 +423,9 @@ function login() {
       </select>
 
       ><br>
-    <button type="button" onclick="Calcular('s1', 's2', 's3', 'dep', 's5', 'opcoes')" value="Calcular" class="boton cal">Calcular</button><button  type=button onclick="Limpar('s1')" value="Limpar" class="boton li">Limpar</button><br>
+        <button type="button" onclick="Calculos('s1', 's2', 's3', 'dep', 's5')" value="Calcular" class="boton cal">Calcular</button>
+        <button type="button" onclick="Limpar('s1')" value="Limpar" class="boton li">Limpar</button>
+    </div>
      </div>
      <div class="haha">
      <div class="site">
@@ -592,7 +562,7 @@ function login() {
     </article>
     <article class="di">
     <p class="p">Dependentes:</p><p class="re" id="sdepfer"></p>
-    <legend>Dependentes, 189.59xDEPENDENTES</legend>
+    
     </article>
     <article class="di">
         <p class="p" >Base p/ Imposto de renda:</p><p class="re" id="sifer"></p>
@@ -602,10 +572,35 @@ function login() {
         <p class="p">Imposto de renda:</p><p class="re" id="sjfer"></p>
        
     </article>
-    <article>
+    <article class="di">
         <h1>DÉCIMO TERCEIRO E RENDA TRIB.</h1>
         <p class="p">Renda trib.</p><p class="re" id="srta"></p>
+    </article>
+    <article>
         <p class="p">13°</p><p class="re" id="sdt"></p>
+    </article>
+    <article>
+        <h1>Declaração simplificada.</h1>
+        <p class="p">Renda total/Ano:</p><p class="re" id="rendaAno"></p>
+    </article>
+    <article class="di">
+        <p class="p">Contr.Prev.INSS/ano:</p><p class="re" id="contraPrevINSS"></p>
+    </article>
+    <article class="di">
+        <p class="p">Desconto Simpl.:</p><p class="re" id="descSim"></p>
+    </article>
+    <article class="di">
+        <p class="p">Base de Cálculos:</p><p class="re" id="baseCalculo"></p>
+    </article>
+    <article class="di">
+        <p class="p">Imposto devido:</p><p class="re" id="impDev"></p>
+    </article>
+    <article class="di">
+        <p class="p">Irrf Anual:</p><p class="re" id="irrfAnual"></p>
+        <legend>É a soma do IRRF do ano inteiro.</legend>
+    </article>
+    <article class="di">
+        <p class="p">IR Restante(PG):</p><P class="re" id="irRestante"></P>
     </article>
 
 
@@ -633,4 +628,3 @@ function login() {
 </body>
 
 </html>
-
