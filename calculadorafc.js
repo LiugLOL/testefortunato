@@ -216,16 +216,3 @@ function Limpar(s1) {
 function fechar() {
     window.close();
 }
-function login() {
-    user = document.getElementById("v1").value;
-    senha = document.getElementById("v2").value;
-
-    if (user == "teste" && senha == "teste") {
-        alert("Bem-vindo.")
-
-        window.location.replace("fortunas.html")
-    } else {
-        alert("Preencha corretamente.")
-    }
-
-}
