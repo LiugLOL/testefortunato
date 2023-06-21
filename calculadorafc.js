@@ -212,7 +212,3 @@ function Limpar(s1) {
     document.getElementById(s1).value = "";
 
 }
-
-function fechar() {
-    window.close();
-}
